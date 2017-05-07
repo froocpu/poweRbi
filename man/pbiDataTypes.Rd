@@ -4,7 +4,7 @@
 \alias{pbiDataTypes}
 \title{Supported data types.}
 \usage{
-pbiDataTypes()
+pbiDataTypes(simple = TRUE, verbose = FALSE)
 }
 \arguments{
 \item{simple}{If TRUE, simply return a character vector of the names. Else, return a detailed data frame with restrictions.}

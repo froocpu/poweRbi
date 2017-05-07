@@ -15,7 +15,7 @@ pbiCreateDataset(name = NULL, duplicate = FALSE, groupId = NULL,
 
 \item{groupId}{Specify which group to create it to. Use pbiListAllUserGroups to find the ids.}
 
-\item{tableSchema}{A list object containing relevant column metadata.}
+\item{tableSchema}{A list object containing relevant column metadata. You may use pbiGenerateTableSchema to help you.}
 
 \item{measureSchema}{A list object containing relevant information about measures.}
 

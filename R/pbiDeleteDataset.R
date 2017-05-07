@@ -8,22 +8,16 @@
 pbiDeleteDataset <- function(guid){
 
   # Perform the call.
-  l = pbiQueryBuilder(method = "DELETE", endpoint = "datasets", guid = guid, getContent = FALSE)
+  l = pbiQueryBuilder(method = "DELETE", endpoint = "datasets", guid = guid)
 
-  # If guid doesn't exist, alert the user.
-  if(l$status_code == 404) {
-    warning(paste(guid, "does not exist."), call. = FALSE)
+  # Successful responses don't have content and have the type of environment.
+  # This requires a two-tiered IF statement for error handling.
+  if(!is.raw(l)) {
+
+  if(exists("error", where = l)) {
+    warning(paste(guid, "produced the error message:", l$error$message, "- please investigate further."), call. = FALSE)
     return(NULL)
-  }
-
-  l = content(l)
-
-  # Using content() produces an error when error handling is performed.
-  # So less detailed error reporting is available for this function.
-  if(length(l$error$code) > 0 & length(l) > 0) {
-    warning(paste(guid, "produced the error code", l$status_code, "- please investigate further."), call. = FALSE)
-    return(NULL)
-  }
+  }}
 
   # Print message to user.
   cat(paste("The dataset with the id of", guid, "has been deleted."))

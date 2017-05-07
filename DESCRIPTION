@@ -4,7 +4,6 @@ Title: A httr wrapper for the Power BI REST API.
 Version: 0.1.0
 Author: Ollie Frost <oliver.frost@consolidata.co.uk>
 Depends: httr, RJSONIO
-Imports: httr, RJSONIO
 Maintainer: Ollie Frost <oliver.frost@consolidata.co.uk>
 Description: Uses httr package to create calls for: pulling metadata, creating datasets, inserting and deleting data and authenticating inside an R session.
 License: GPL-2

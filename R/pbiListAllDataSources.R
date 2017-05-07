@@ -28,8 +28,8 @@ pbiListAllDataSources <- function(id = NULL, allDatasets = FALSE){
     l = pbiQueryBuilder(endpoint = "datasets", suffix = "dataSources", guid = each)
 
     ## Error handle.
-    if(length(l$error$code) > 0) {
-      warning(paste(each, "presented with an error code: ", l$error$code), call. = FALSE)
+    if(exists("error", where = l)) {
+      warning(paste(each, "presented with an error message: ", l$error$message), call. = FALSE)
       next
     }
 

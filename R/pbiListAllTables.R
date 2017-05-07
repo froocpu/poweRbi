@@ -28,8 +28,19 @@ pbiListAllTables <- function(id = NULL, allDatasets = FALSE){
     l = pbiQueryBuilder(endpoint = "datasets", suffix = "tables", guid = each)
 
     ## Error handling.
-    if(length(l$error$code) > 0) {
-      warning(paste(each, "produced an error code: ", l$error$code), call. = FALSE)
+    if(exists("error", where = l)) {
+      warning(paste(each, "produced an error message: ", l$error$message), call. = FALSE)
+      next
+    }
+
+    if(!exists("value", where = l)){
+      next
+    }
+
+    if(
+      length(grepl("xml", class(l))) > 0
+      ){
+      warning(paste(each, "produced an XML output, which usually means a bad request."), call. = FALSE)
       next
     }
 

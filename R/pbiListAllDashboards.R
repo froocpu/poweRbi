@@ -11,8 +11,8 @@ pbiListAllDashboards <- function(toDf = TRUE){
   l = pbiQueryBuilder(endpoint = "dashboards")
 
   # Error handling.
-  if(length(l$error$code) > 0) {
-    warning(paste("GET request produced an error code: ", l$error$code), call. = FALSE)
+  if(exists("error", where = l)) {
+    warning(paste("GET request produced an error message: ", l$error$message), call. = FALSE)
     return(NULL)
   }
 

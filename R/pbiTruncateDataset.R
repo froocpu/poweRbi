@@ -20,19 +20,22 @@ pbiTruncateDataset <- function(guid, tableName){
   )
 
   # Make the call.
-  l = httr::DELETE(
+  l = content(httr::DELETE(
     url = url,
     httr::add_headers(
       Authorization = paste("Bearer", .token)
-    ))
+    )))
 
-  # Using content() produces an error when error handling is performed.
-  # So less detailed error reporting is available for this function.
-  if(length(l$error$code) > 0 & length(l) > 0) {
-    warning(paste(guid, "and", tableName, "produced the error code", l$status_code, "- please investigate further."), call. = FALSE)
-    return(NULL)
-  }
+  # Successful responses don't have content and have the type of environment.
+  # This requires a two-tiered IF statement for error handling.
+  if(!is.raw(l)) {
 
+    if(exists("error", where = l)) {
+      warning(paste(guid, "produced the error message:", l$error$message, "- please investigate further."), call. = FALSE)
+      return(NULL)
+    }}
+
+  # Print a message.
   cat(paste(tableName, "successfully truncated."))
 
 }

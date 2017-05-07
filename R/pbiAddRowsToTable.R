@@ -16,9 +16,9 @@ pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
   }
 
   # Construct URL for the POST request.
-  url = paste0("https://api.powerbi.com/v1.0/myorg/datasets/", guid, "/tables/", tableName, "/rows")
+  url = URLencode(paste0("https://api.powerbi.com/v1.0/myorg/datasets/", guid, "/tables/", tableName, "/rows"))
 
-  # Truncate the dataset before inserting if that's what the user wants/
+  # Truncate the dataset before inserting if that's what the user wants.
   if(truncate) {
     warning("Truncating rows...", call. = FALSE)
     pbiTruncateDataset(guid, tableName)
@@ -32,15 +32,20 @@ pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
   l = content(httr::POST(
     url = url,
     httr::add_headers(
-      Authorization = paste("Bearer", .token)
+      Authorization = paste("Bearer", .token),
+      `Content-Type` = "application/json"
     ),
     body = rows))
 
+  # Two-tiered IF statement for this particular statement.
+
+  if(!is.raw(l)){
+
   # Error handling.
-  if(length(l) > 0) {
-    warning(paste(guid, "and", tableName, "produced an error code. Check the schema, or whether the guid exists."), call. = FALSE)
+  if(exists("error", where = l)) {
+    warning(paste(guid, "and", tableName, "produced an error message:", l$error$message, "."), call. = FALSE)
     return(NULL)
-  }
+  }}
 
   cat(paste(nrow(df), "rows inserted into", tableName, "successfully!"))
 

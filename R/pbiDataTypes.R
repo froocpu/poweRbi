@@ -6,7 +6,7 @@
 #' @examples
 #' pbiDataTypes()
 
-pbiDataTypes <- function(){
+pbiDataTypes <- function(simple = TRUE, verbose = FALSE){
 
   if(verbose){
   cat("Information correct as of 06 May 2017:

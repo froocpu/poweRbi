@@ -7,3 +7,5 @@ You will need to register an app before you can use this library: https://powerb
 #### Before installing:
 This is still in development and fairly experimental. Much of the functionality is ready to use, so if there are any significant improvements
 that can be made during this process then feel free to make changes and contribute as you please.
+
+    devtools::install_github("olfrost/poweRbi")

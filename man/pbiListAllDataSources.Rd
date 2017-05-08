@@ -9,7 +9,7 @@ pbiListAllDataSources(id = NULL, allDatasets = FALSE)
 \arguments{
 \item{id}{A character string or vector containing guids. Hint: You can use pbiListAllDatasets to help you.}
 
-\item{all}{When TRUE, it will override the value of id and proceed to find all datasets.}
+\item{allDatasets}{When TRUE, it will override the value of id and proceed to find all datasets.}
 }
 \value{
 Data frame.

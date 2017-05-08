@@ -4,10 +4,10 @@
 \alias{pbiDatasetTypes}
 \title{Supported dataset types.}
 \usage{
-pbiDatasetTypes(simple = TRUE, verbose = FALSE)
+pbiDatasetTypes()
 }
 \value{
-List
+Character vector.
 }
 \description{
 Dataset types.

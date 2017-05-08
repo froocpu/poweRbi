@@ -4,16 +4,17 @@
 #' @param tableName A character string. When is not NULL, it will override the default of using the variable name as the table name.
 #' @param debug When TRUE, it will return a list object converted from the JSON so that you can see what the R object should look like.
 #' @return List object or JSON to be passed into the body of a request.
+#' @importFrom jsonlite toJSON fromJSON
 #' @examples
-#' pbiGenerateTableSchema(cats, debug = TRUE)
+#' pbiGenerateTableSchema(cars, debug = TRUE) # It will coerce objects to data frames if it can.
 #' pbiDataTypes() # Use to reference accepted data types.
 
 pbiGenerateTableSchema <- function(df, tableName = NULL, debug = FALSE){
 
   # Create a storage data frame.
   collectMeta = try(data.frame(row.names = NULL,
-    name = names(iris3),
-    dataType = sapply(iris3, ._pbiGetDataType)
+    name = names(data.frame(df)),
+    dataType = sapply(data.frame(df), ._pbiGetDataType)
   ))
 
   if(is(collectMeta, "try-error")) stop("Make sure that the object you have passed is a data frame and not a double/list object.")

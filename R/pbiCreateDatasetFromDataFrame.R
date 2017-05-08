@@ -7,7 +7,9 @@
 #' @param addRows When TRUE, it will create the schema and data. When FALSE, just the schema will be created.
 #' @param datasetType What kind of dataset do you want to use? Use pbiDatasetTypes to see the available options.
 #' @param FIFO Default retention policy, or basic "first-in-first-out". Dataset will store between 200-210k rows and remove the oldest rows when the storage limit has been reached. Consider this option for streaming datasets. Options are 'none' or 'basicFIFO'.
+#' @param verbose If TRUE, return extra information about the endpoint.
 #' @return HTTP response object.
+#' @examples pbiCreateDatasetFromDataFrame(name = "New Dataset", df = data.frame(cars), tableName = "Cars Table")
 
 pbiCreateDatasetFromDataFrame <- function(
   name,
@@ -15,7 +17,6 @@ pbiCreateDatasetFromDataFrame <- function(
   tableName,
   duplicate = FALSE,
   addRows = TRUE,
-  groupId = NULL,
   datasetType = "Push",
   FIFO = "none",
   verbose = FALSE

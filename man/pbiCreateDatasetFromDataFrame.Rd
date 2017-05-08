@@ -5,8 +5,7 @@
 \title{Create a new dataset from a data frame.}
 \usage{
 pbiCreateDatasetFromDataFrame(name, df, tableName, duplicate = FALSE,
-  addRows = TRUE, groupId = NULL, datasetType = "Push", FIFO = "none",
-  verbose = FALSE)
+  addRows = TRUE, datasetType = "Push", FIFO = "none", verbose = FALSE)
 }
 \arguments{
 \item{name}{The name of the new dataset.}
@@ -22,10 +21,15 @@ pbiCreateDatasetFromDataFrame(name, df, tableName, duplicate = FALSE,
 \item{datasetType}{What kind of dataset do you want to use? Use pbiDatasetTypes to see the available options.}
 
 \item{FIFO}{Default retention policy, or basic "first-in-first-out". Dataset will store between 200-210k rows and remove the oldest rows when the storage limit has been reached. Consider this option for streaming datasets. Options are 'none' or 'basicFIFO'.}
+
+\item{verbose}{If TRUE, return extra information about the endpoint.}
 }
 \value{
 HTTP response object.
 }
 \description{
 Requires the correct metadata information to be passed to the function in the form of lists and named variables. Relationships, measures and columns can be handled.
+}
+\examples{
+pbiCreateDatasetFromDataFrame(name = "New Dataset", df = data.frame(cars), tableName = "Cars Table")
 }

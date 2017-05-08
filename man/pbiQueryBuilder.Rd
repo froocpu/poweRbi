@@ -11,6 +11,12 @@ pbiQueryBuilder(endpoint, guid = NULL, object = NULL, suffix = NULL,
 \arguments{
 \item{endpoint}{Which endpoint of the API to query.}
 
+\item{guid}{When required, supply a guid. This will often be provided by a loop.}
+
+\item{object}{Usually reserved for table names, but will be the child of an endpoint (like datasets) or a guid.}
+
+\item{suffix}{Usually "rows", goes at the end of the URL.}
+
 \item{method}{Default is GET.}
 
 \item{version}{The API version.}

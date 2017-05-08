@@ -1,5 +1,8 @@
 #' Internal method for refreshing the access token.
 #' @description Uses a hidden function from the httr package to refresh the access token.
+#' @param url Retrieves the URL object created by the authentication process.
+#' @param app Retrieves the application object created by the authentication process.
+#' @param cred Retrieves the credentials, containing the original access token and expiry dates.
 #' @return A character string containing a valid access token.
 
 ._pbiRefresh <- function(

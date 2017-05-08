@@ -1,0 +1,18 @@
+pbiAddRowsToTable   Add rows to a table.
+pbiAuthenticate   Authenticate your Power BI API session.
+pbiCreateDatasetFromDataFrame   Create a new dataset from a data frame.
+pbiDatasetTypes   Supported dataset types.
+pbiDataTypes   Supported data types.
+pbiDeleteDataset    Delete a dataset.
+pbiGenerateTableSchema   Generate a table schema.
+pbiListAllDashboards   List all dashboards.
+pbiListAllDatasets   List all datasets.
+pbiListAllDataSources    List all data sources (from all datasets)
+pbiListAllImportedFiles    List all imported files.
+pbiListAllReports   List all reports.
+pbiListAllTables    List all tables (from all datasets)
+pbiListAllTiles   List all tiles (from all dashboards)
+pbiListAllUserGroups   List all imported files.
+pbiQueryBuilder   Build simple REST API queries.
+pbiTruncateDataset   Truncate a table.
+pbiUpdateTableSchema   Update an existing table schema.

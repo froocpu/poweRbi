@@ -1,11 +1,13 @@
 Package: poweRbi
 Type: Package
-Title: A httr wrapper for the Power BI REST API.
+Title: A httr wrapper for the Power BI REST API
 Version: 0.1.0
 Author: Ollie Frost <oliver.frost@consolidata.co.uk>
-Depends: httr, RJSONIO
+Depends: httr, RJSONIO, jsonlite
+Imports: methods, utils
+Suggests: datasets
 Maintainer: Ollie Frost <oliver.frost@consolidata.co.uk>
-Description: Uses httr package to create calls for: pulling metadata, creating datasets, inserting and deleting data and authenticating inside an R session.
+Description: Uses httr package to create calls for: pulling metadata, creating datasets, inserting and deleting data and authenticating inside an R session
 License: GPL-2
 LazyData: TRUE
 RoxygenNote: 6.0.1

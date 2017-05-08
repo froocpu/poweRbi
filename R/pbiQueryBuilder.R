@@ -1,7 +1,10 @@
 #' Build simple REST API queries.
 #' @description An internal function that acts as a skeleton for building API queries for other functions. This will only work when you have authenticated first.
 #' @param method Default is GET.
+#' @param guid When required, supply a guid. This will often be provided by a loop.
+#' @param object Usually reserved for table names, but will be the child of an endpoint (like datasets) or a guid.
 #' @param version The API version.
+#' @param suffix Usually "rows", goes at the end of the URL.
 #' @param endpoint Which endpoint of the API to query.
 #' @param printCall Print the URL of the API call used for debugging.
 #' @param getContent If TRUE, extract JSON from the response object.

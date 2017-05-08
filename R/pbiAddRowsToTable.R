@@ -1,6 +1,8 @@
 #' Add rows to a table.
 #' @description Assumes that the schema of the data frame matches the table, it will try and insert the rows.
 #' @param df The data frame you want to insert.
+#' @importFrom httr add_headers POST content
+#' @importFrom RJSONIO toJSON
 #' @param guid Dataset Id.
 #' @param tableName The friendly name of the table. The URL will be encoded.
 #' @param truncate When TRUE, calls pbiTruncateDataset to clean the table before loading.
@@ -29,7 +31,7 @@ pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
   rows = paste0("{\"rows\":[", rows, "]}")
 
   # Make the request.
-  l = content(httr::POST(
+  l = httr::content(httr::POST(
     url = url,
     httr::add_headers(
       Authorization = paste("Bearer", .token),

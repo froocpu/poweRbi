@@ -8,36 +8,37 @@ You will need to register an app before you can use this library: https://powerb
 This is still in development and fairly experimental. Much of the functionality is ready to use, so if there are any significant improvements
 that can be made during this process then feel free to make changes and contribute as you please.
 
+    install.packages("devtools") # If required.
     devtools::install_github("olfrost/poweRbi")
     
 ### Examples
 
-See the demo directory for the full code for the following examples:
+See the demo directory for the full code examples for the following:
 
     library(poweRbi)
 
+All functions are prefixed with "pbi" to enable faster lookup.
+
 #### Authenticate your session.
-    options(httr_oauth_cache = FALSE)
-    pbiAuthenticate(appName, clientId, clientSecret) ## fix readRDS
+    pbiAuthenticate(appName, clientId, clientSecret) # This will take you to a sign-in page, or you can cache your authentication details as a .httr-oauth file.
 
 #### Get metadata about objects in your workspace
 
     # Datasets
-    pbiListAllDatasets()
-    pbiListAllDatasets(toDf = FALSE)
+    pbiListAllDatasets(toDf = FALSE) # Be flexible on whether your data is returned as a list or as a data frame.
     
     # Dashboards
-    pbiListAllDashboards()
+    pbiListAllDashboards(toDf = TRUE)
     
     # Imported files
-    pbiListAllImportedFiles()
+    pbiListAllImportedFiles(toDf = TRUE)
     
     # Reports
-    pbiListAllReports()
+    pbiListAllReports(toDf = TRUE)
     
     # Tables
     pbiListAllTables(allDatasets = TRUE)
-    pbiListAllTables(id = "cfcf6cde-45b7-459d-a8a3-a09644f5cbbe")
+    pbiListAllTables(id = "cfcf6cde-45b7-459d-a8a3-a09644f5cbbe") # A single guid, multiple guids or all.
     
     # Tiles
     pbiListAllTiles(allDashboards = TRUE)
@@ -54,14 +55,14 @@ See the demo directory for the full code for the following examples:
       name = "Iris Dataset",
       df = iris,
       tableName = "Iris Data Frame",
-      FIFO = "basicFIFO"
+      FIFO = "basicFIFO" # Enable basic first-in-first-out for streaming.
     )
 
 #### Manage existing datasets
 
     # Use populated (or empty) data frames to update tables in Power BI.
     pbiUpdateTableSchema(
-      iris3,
+      iris3, # Overwrite table schemas.
       guid = "abcdefg",
       tableName = "Iris Data Frame"
     )
@@ -77,7 +78,7 @@ See the demo directory for the full code for the following examples:
 
     # Create new rows.
     pbiAddRowsToTable(
-      df = cats,
+      df = cats, # Use this function to stream data into an appropriate dataset.
       guid = "abcdef",
       tableName = "Iris Data Frame"
     )
@@ -104,6 +105,6 @@ See the demo directory for the full code for the following examples:
     )
 
     # Automatic token refreshing.
-    ._pbiRefresh()
+    ._pbiRefresh() # All handled automatically by pbi functions.
     ._pbiTokenExpiresIn()
 

@@ -1,7 +1,7 @@
 #' List all data sources (from all datasets)
 #' @description Return all data sources from a single, multiple or from all datasets.
 #' @param id A character string or vector containing guids. Hint: You can use pbiListAllDatasets to help you.
-#' @param all When TRUE, it will override the value of id and proceed to find all datasets.
+#' @param allDatasets When TRUE, it will override the value of id and proceed to find all datasets.
 #' @return Data frame.
 #' @examples
 #' pbiListAllDataSources(id = "as876fdsjds")

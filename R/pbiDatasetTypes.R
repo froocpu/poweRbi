@@ -1,10 +1,10 @@
 #' Supported dataset types.
 #' @description Dataset types.
-#' @return List
+#' @return Character vector.
 #' @examples
 #' pbiDatasetTypes()
 
-pbiDatasetTypes <- function(simple = TRUE, verbose = FALSE){
+pbiDatasetTypes <- function(){
   DefaultModeProperties = c("Push", "Streaming", "PushStreaming")
   return(DefaultModeProperties)
 }

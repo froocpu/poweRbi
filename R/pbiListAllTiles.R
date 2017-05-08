@@ -12,12 +12,12 @@ pbiListAllTiles <- function(id = NULL, allDashboards = FALSE){
 
   # Input validation.
   if(is.null(id) | allDashboards == TRUE){
-    warning("Overriding id variable...", call. = FALSE)
+    stop("Overriding id variable...")
     id = as.character(pbiListAllDashboards()$Id)
   }
 
   if(typeof(id) == "list") {
-    warning("id must be a character string or vector.", call. = FALSE)
+    stop("id must be a character string or vector.")
     return(NULL)
   }
 
@@ -29,7 +29,7 @@ pbiListAllTiles <- function(id = NULL, allDashboards = FALSE){
 
     ## Error handling.
     if(exists("error", where = l)) {
-      warning(paste(each, "produced an error message: ", l$error$message), call. = FALSE)
+      stop(paste(each, "produced an error message: ", l$error$message))
       next
     }
 
@@ -40,7 +40,7 @@ pbiListAllTiles <- function(id = NULL, allDashboards = FALSE){
     if(
       length(grepl("xml", class(l))) > 0
     ){
-      warning(paste(each, "produced an XML output, which usually means a bad request."), call. = FALSE)
+      stop(paste(each, "produced an XML output, which usually means a bad request."))
       next
     }
 

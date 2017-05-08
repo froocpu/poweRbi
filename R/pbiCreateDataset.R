@@ -40,7 +40,7 @@ pbiCreateDataset <- function(
   df = pbiListAllDatasets()
 
   if(is.null(name) | is.null(tableSchema)) {
-    warning("A table name/column metadata is required.", call. = FALSE)
+    stop("A table name/column metadata is required.")
     return(NULL)
   }
 
@@ -48,7 +48,7 @@ pbiCreateDataset <- function(
       nrow(df[df$Name == name,]) > 0
       & duplicate == FALSE
     ) {
-    warning("This dataset name already exists. Select duplicate = TRUE to create a dataset with the same name.", call. = FALSE)
+    stop("This dataset name already exists. Select duplicate = TRUE to create a dataset with the same name.")
     return(NULL)
   }
 
@@ -77,13 +77,13 @@ pbiCreateDataset <- function(
 
   # Error handling.
   if(exists("error", where = l)) {
-    warning(paste("POST request produced an error message: ", l$error$message), call. = FALSE)
+    stop(paste("POST request produced an error message: ", l$error$message))
     return(NULL)
   }
 
     # Produce the error message for a bad input paramater.
     } else {
-      warning("Invalid FIFO parameter.")
+      stop("Invalid FIFO parameter.")
       return(NULL)
     }
 

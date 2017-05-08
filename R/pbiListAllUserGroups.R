@@ -12,12 +12,12 @@ pbiListAllUserGroups <- function(toDf = TRUE){
 
   # Error handling.
   if(exists("error", where = l)) {
-    warning(paste("GET request produced an error message: ", l$error$message), call. = FALSE)
+    stop(paste("GET request produced an error message: ", l$error$message))
     return(NULL)
   }
 
   if(length(l$content) == 0) {
-    warning("Check your app permissions - there was no content attached to the response.")
+    stop("Check your app permissions - there was no content attached to the response.")
     return(NULL)
   }
 

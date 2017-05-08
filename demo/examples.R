@@ -2,7 +2,7 @@ library(poweRbi)
 
 #### 1. Authenticate your session. -------------------------------------------
 options(httr_oauth_cache = FALSE)
-pbiAuthenticate(appName, clientId, clientSecret) ## fix readRDS
+pbiAuthenticate(appName, clientId, clientSecret)
 
 #### 2. Get metadata about objects in your workspace. ------------------------
 

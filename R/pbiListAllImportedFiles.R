@@ -12,7 +12,7 @@ pbiListAllImportedFiles <- function(toDf = TRUE){
 
   # Error handling.
   if(exists("error", where = l)) {
-    warning(paste("GET request produced an error message: ", l$error$message), call. = FALSE)
+    stop(paste("GET request produced an error message: ", l$error$message))
     return(NULL)
   }
 

@@ -12,8 +12,6 @@ pbiAuthenticate(appName, clientId, clientSecret)
 \item{clientId}{Application ID.}
 
 \item{clientSecret}{Client secret.}
-
-\item{cache}{When TRUE, a .httr-oauth file will be created in the working directory which be reused for further authentications. This will mean you only have to enter your password on the Windows login once - an option for scripting processes. When FALSE the user will have to authenticate with a password each time.}
 }
 \description{
 Supply your application name, client ID and client secret. You will need to register an application here: https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-register-a-web-app/

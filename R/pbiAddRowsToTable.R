@@ -20,7 +20,7 @@ pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
 
   # Truncate the dataset before inserting if that's what the user wants.
   if(truncate) {
-    warning("Truncating rows...", call. = FALSE)
+    stop("Truncating rows...")
     pbiTruncateDataset(guid, tableName)
   }
 
@@ -43,7 +43,7 @@ pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
 
   # Error handling.
   if(exists("error", where = l)) {
-    warning(paste(guid, "and", tableName, "produced an error message:", l$error$message, "."), call. = FALSE)
+    stop(paste(guid, "and", tableName, "produced an error message:", l$error$message, "."))
     return(NULL)
   }}
 

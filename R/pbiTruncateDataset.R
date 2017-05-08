@@ -31,7 +31,7 @@ pbiTruncateDataset <- function(guid, tableName){
   if(!is.raw(l)) {
 
     if(exists("error", where = l)) {
-      warning(paste(guid, "produced the error message:", l$error$message, "- please investigate further."), call. = FALSE)
+      stop(paste(guid, "produced the error message:", l$error$message, "- please investigate further."))
       return(NULL)
     }}
 

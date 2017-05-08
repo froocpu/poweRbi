@@ -17,7 +17,7 @@
       ))
 
   if(is(token, "try-error")) {
-    warning("Could not refresh the access token. *shrugs*. Have you authenticated with pbiAuthenticate?")
+    stop("Could not refresh the access token. *shrugs*. Have you authenticated with pbiAuthenticate?")
     return(NULL)
   }
 

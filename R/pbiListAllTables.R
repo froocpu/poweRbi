@@ -12,12 +12,12 @@ pbiListAllTables <- function(id = NULL, allDatasets = FALSE){
 
   # Parameter validation.
   if(is.null(id) | allDatasets == TRUE){
-    warning("Overriding id variable, retrieving all datasets...", call. = FALSE)
+    stop("Overriding id variable, retrieving all datasets...")
     id = as.character(pbiListAllDatasets()$Id)
   }
 
   if(typeof(id) == "list") {
-    warning("The variable 'id' must be a character string or vector.", call. = FALSE)
+    stop("The variable 'id' must be a character string or vector.")
     return(NULL)
   }
 
@@ -29,7 +29,7 @@ pbiListAllTables <- function(id = NULL, allDatasets = FALSE){
 
     ## Error handling.
     if(exists("error", where = l)) {
-      warning(paste(each, "produced an error message: ", l$error$message), call. = FALSE)
+      stop(paste(each, "produced an error message: ", l$error$message))
       next
     }
 
@@ -40,7 +40,7 @@ pbiListAllTables <- function(id = NULL, allDatasets = FALSE){
     if(
       length(grepl("xml", class(l))) > 0
       ){
-      warning(paste(each, "produced an XML output, which usually means a bad request."), call. = FALSE)
+      stop(paste(each, "produced an XML output, which usually means a bad request."))
       next
     }
 

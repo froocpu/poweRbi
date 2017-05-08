@@ -3,7 +3,6 @@
 #' @param appName The name of the application.
 #' @param clientId Application ID.
 #' @param clientSecret Client secret.
-#' @param cache When TRUE, a .httr-oauth file will be created in the working directory which be reused for further authentications. This will mean you only have to enter your password on the Windows login once - an option for scripting processes. When FALSE the user will have to authenticate with a password each time.
 #' @examples
 #' pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")
 

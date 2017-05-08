@@ -17,5 +17,5 @@ pbiAuthenticate(appName, clientId, clientSecret)
 Supply your application name, client ID and client secret. You will need to register an application here: https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-register-a-web-app/
 }
 \examples{
-pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")
+# pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")
 }

@@ -6,10 +6,10 @@
 ._pbiTokenExpiresIn <- function(verbose = FALSE){
 
   # When verbose == FALSE, this will be accurate to an average of 21-25 milliseconds (microbenchmark over repeated 100-1m evaluations on R 3.3.2.)
-  if(verbose == FALSE) return((.expires - as.numeric(Sys.time())) / 60)
+  if(verbose == FALSE) return((.pkgenv[["expires"]] - as.numeric(Sys.time())) / 60)
 
   # Else, be chatty and human readable.
-  mins = (.expires - as.numeric(Sys.time())) / 60
+  mins = (.pkgenv[["expires"]] - as.numeric(Sys.time())) / 60
 
   if(mins < 0){
     cat("Expired.\r\n")

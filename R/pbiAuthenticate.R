@@ -4,7 +4,7 @@
 #' @param clientId Application ID.
 #' @param clientSecret Client secret.
 #' @examples
-#' pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")
+#' # pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")
 
 pbiAuthenticate <- function(
   appName,
@@ -13,19 +13,21 @@ pbiAuthenticate <- function(
   )
 {
 
-  .powerbi.urls <<- httr::oauth_endpoint(
+  .pkgenv[["powerbi.urls"]] <- httr::oauth_endpoint(
         authorize = "https://login.windows.net/common/oauth2/authorize",
         access = "https://login.windows.net/common/oauth2/token")
 
-  .powerbi.app <<- httr::oauth_app(
+  .pkgenv[["powerbi.app"]] <- httr::oauth_app(
           appName, key = clientId, secret = clientSecret)
 
-  .powerbi.token <<- httr::oauth2.0_token(
-        .powerbi.urls, .powerbi.app,
+  .pkgenv[["powerbi.token"]] <- httr::oauth2.0_token(
+    .pkgenv[["powerbi.urls"]], .pkgenv[["powerbi.app"]],
         user_params = list(resource = "https://analysis.windows.net/powerbi/api"))
 
-  .expires <<- as.numeric(.powerbi.token$credentials$expires_on)
+  expires = .pkgenv[["powerbi.token"]]
 
-  .token <<- .powerbi.token$credentials$access_token
+  .pkgenv[["expires"]] <- as.numeric(expires$credentials$expires_on)
+
+  .pkgenv[["token"]] <- expires$credentials$access_token
 
 }

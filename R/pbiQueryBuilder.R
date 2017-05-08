@@ -26,9 +26,9 @@ pbiQueryBuilder <- function(
 {
 
   # Update access token.
-  if(as.numeric(Sys.time()) > .expires){
+  if(as.numeric(Sys.time()) > .pkgenv[["expires"]]){
     # Refresh the access token with an internal method.
-    .token <<- ._pbiRefresh()
+    .pkgenv[["token"]] <- ._pbiRefresh()
   }
 
   # Begin testing.
@@ -36,21 +36,21 @@ pbiQueryBuilder <- function(
     query = paste0(
       "httr::", method, "(\"https://api.powerbi.com/", version, "/myorg/", endpoint, "\",
       httr::add_headers(
-        Authorization = paste(\"Bearer\", \"", .token, "\")))"
+        Authorization = paste(\"Bearer\", \"", .pkgenv[["token"]], "\")))"
     )}
 
   if(!is.null(guid) & is.null(object) & !is.null(suffix)) {
     query = paste0(
       "httr::", method, "(\"https://api.powerbi.com/", version, "/myorg/", endpoint, "/", guid, "/", suffix, "\",
       httr::add_headers(
-      Authorization = paste(\"Bearer\", \"", .token, "\")))"
+      Authorization = paste(\"Bearer\", \"", .pkgenv[["token"]], "\")))"
     )}
 
   if(!is.null(guid) & is.null(object) & is.null(suffix)) {
     query = paste0(
       "httr::", method, "(\"https://api.powerbi.com/", version, "/myorg/", endpoint, "/", guid, "\",
       httr::add_headers(
-      Authorization = paste(\"Bearer\", \"", .token, "\")))"
+      Authorization = paste(\"Bearer\", \"", .pkgenv[["token"]], "\")))"
     )}
 
   if(printCall) cat(query)

@@ -8,7 +8,7 @@
 pbiListAllUserGroups <- function(toDf = TRUE){
 
   # Call the query builder to make the call.
-  l = pbiQueryBuilder(endpoint = "groups", getContent = FALSE)
+  l = pbiQueryBuilder(endpoint = "groups")
 
   # Error handling.
   if(exists("error", where = l)) {

@@ -7,14 +7,15 @@
 #' @param tableName The friendly name of the table. The URL will be encoded.
 #' @param truncate When TRUE, calls pbiTruncateDataset to clean the table before loading.
 #' @examples
-#' pbiAddRowsToTable(df = iris, guid = "dasdf8768adsf87ef", tableName = "Iris Data", truncate = TRUE)
+#' # not run!
+#' # pbiAddRowsToTable(iris, guid = "abc", tableName = "Iris")
 
 pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
 
   # Check access token.
-  if(as.numeric(Sys.time()) > .expires){
+  if(as.numeric(Sys.time()) > .pkgenv[["expires"]]){
     # Refresh the access token with an internal method.
-    .token <<- ._pbiRefresh()
+    .pkgenv[["token"]] <- ._pbiRefresh()
   }
 
   # Construct URL for the POST request.
@@ -34,7 +35,7 @@ pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
   l = httr::content(httr::POST(
     url = url,
     httr::add_headers(
-      Authorization = paste("Bearer", .token),
+      Authorization = paste("Bearer", .pkgenv[["token"]]),
       `Content-Type` = "application/json"
     ),
     body = rows))

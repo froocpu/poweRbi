@@ -5,9 +5,9 @@ Version: 0.1.0
 Author: Ollie Frost <oliver.frost@consolidata.co.uk>
 Depends: httr, RJSONIO, jsonlite
 Imports: methods, utils
-Suggests: datasets
+Suggests: MASS
 Maintainer: Ollie Frost <oliver.frost@consolidata.co.uk>
-Description: Uses httr package to create calls for: pulling metadata, creating datasets, inserting and deleting data and authenticating inside an R session
+Description: Uses httr package to create calls for: pulling metadata, creating datasets, inserting and deleting data and authenticating inside an R session. See https://github.com/olfrost/poweRbi or https://www.consolidata.co.uk/explore/blog/powerbi-r for more information. 
 License: GPL-2
 LazyData: TRUE
 RoxygenNote: 6.0.1

@@ -9,9 +9,9 @@
 pbiTruncateDataset <- function(guid, tableName){
 
   # Update the access token.
-  if(as.numeric(Sys.time()) > .expires){
+  if(as.numeric(Sys.time()) > .pkgenv[["expires"]]){
     # Refresh the access token with an internal method.
-    .token <<- ._pbiRefresh()
+    .pkgenv[["token"]] <- ._pbiRefresh()
   }
 
   # pbiQueryBuilder not used here.
@@ -23,7 +23,7 @@ pbiTruncateDataset <- function(guid, tableName){
   l = content(httr::DELETE(
     url = url,
     httr::add_headers(
-      Authorization = paste("Bearer", .token)
+      Authorization = paste("Bearer", .pkgenv[["token"]])
     )))
 
   # Successful responses don't have content and have the type of environment.

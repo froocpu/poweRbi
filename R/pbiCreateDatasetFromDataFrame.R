@@ -27,9 +27,9 @@ pbiCreateDatasetFromDataFrame <- function(
     if(FIFO %in% c("none","basicFIFO")){
 
     # Check the access token.
-    if(as.numeric(Sys.time()) > .expires){
+    if(as.numeric(Sys.time()) > .pkgenv[["expires"]]){
     # Refresh the access token with an internal method.
-    .token <<- ._pbiRefresh()
+    .pkgenv[["token"]] <- ._pbiRefresh()
   }
 
   # Report extra information if verbose is selected.
@@ -64,7 +64,7 @@ pbiCreateDatasetFromDataFrame <- function(
   l = content(httr::POST(
     url = URLencode(paste0("https://api.powerbi.com/v1.0/myorg/datasets?defaultRetentionPolicy=", FIFO)),
     httr::add_headers(
-      Authorization = paste("Bearer", .token)
+      Authorization = paste("Bearer", .pkgenv[["token"]])
     ),
     body = l
   ))

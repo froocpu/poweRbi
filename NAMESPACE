@@ -1,4 +1,7 @@
 exportPattern("[[:alpha:]]+")
 importFrom("methods", "is")
 importFrom("utils", "URLencode", "read.table")
-importFrom("httr", "POST", "GET", "content", "PUT", "add_headers", "oauth_endpoint", "oauth_app", "oauth2.0_token")
+importFrom("httr", "authenticate", "status_code", "stop_for_status", "POST", "GET", "content", "PUT", "add_headers", "oauth_endpoint", "oauth_app", "oauth2.0_token")
+importFrom("RJSONIO", "toJSON")
+importFrom("jsonlite", "fromJSON")
+

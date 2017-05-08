@@ -4,6 +4,23 @@ this library aims to provide a useful set of tools for navigating the (fairly li
 
 You will need to register an app before you can use this library: https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-overview-of-power-bi-rest-api/
 
+### Overview
+
+The package satisfies five main functions:
+
+ - Handles OAuth 2.0 authentication between R sessions and Power BI applications.
+ - Pulls metadata about datasets, dashboards and tiles, reports, import files and user groups.
+ - Creates datasets, imports data frames as tables and streams data to Power BI tables.
+ - Managing existing datasets with update, truncation and delete functions.
+ - Provides utilities to infer data types and generate list/JSON objects from data frames.
+
+Some use cases :
+
+ - Streaming data from an external source to a Streaming or PushStreaming Power BI dataset.
+ - Creating datasets and tables on the fly and storing the results of R scripts on a Power BI web service.
+ - Maintaining datasets, reports and dashboards.
+ - Using URLs from report metadata to embed reports as iframes inside your own application.
+
 #### Before installing:
 This is still in development and fairly experimental. Much of the functionality is ready to use, so if there are any significant improvements
 that can be made during this process then feel free to make changes and contribute as you please.

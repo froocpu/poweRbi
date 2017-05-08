@@ -5,7 +5,6 @@
 #' @param clientSecret Client secret.
 #' @examples
 #' # pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")
-
 pbiAuthenticate <- function(
   appName,
   clientId,
@@ -31,3 +30,5 @@ pbiAuthenticate <- function(
   .pkgenv[["token"]] <- expires$credentials$access_token
 
 }
+
+.pkgenv <- new.env(parent=emptyenv())

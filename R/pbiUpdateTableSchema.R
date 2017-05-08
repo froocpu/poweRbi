@@ -5,7 +5,7 @@
 #' @param tableName Friendly table name - see pbiListAllTables for help.
 #' @return HTTP response object.
 #' @examples
-#' pbiUpdateTableSchema(iris, guid = "sdjfalsdkfj2", tableName = "Friendly Name")
+#' \dontrun{pbiUpdateTableSchema(iris, guid = "sdjfalj2", tableName = "tName")}
 #' pbiGenerateTableSchema(iris)
 
 pbiUpdateTableSchema <- function(df, guid, tableName) {

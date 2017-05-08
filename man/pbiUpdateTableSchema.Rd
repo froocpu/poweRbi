@@ -20,6 +20,6 @@ HTTP response object.
 Requires dataset id and table name and a data.frame. Passes a table schema to the body of the request - uses pbiGenerateTableSchema to dynamically create a table schema off of a data frame, which you can use to give you an idea about what the R object should look like if you want to create a data frame yourself.
 }
 \examples{
-pbiUpdateTableSchema(iris, guid = "sdjfalsdkfj2", tableName = "Friendly Name")
+\dontrun{pbiUpdateTableSchema(iris, guid = "sdjfalj2", tableName = "tName")}
 pbiGenerateTableSchema(iris)
 }

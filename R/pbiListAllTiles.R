@@ -4,7 +4,7 @@
 #' @param allDashboards When TRUE, it will override the value of id and proceed to find all dashboards.
 #' @return Data frame.
 #' @examples
-#' pbiListAllTiles(all = TRUE)
+#' \dontrun{pbiListAllTiles(all = TRUE)}
 
 pbiListAllTiles <- function(id = NULL, allDashboards = FALSE){
 

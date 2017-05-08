@@ -16,5 +16,5 @@ Data frame or JSON.
 Return a data frame containing basic information about all of the dashboards on your Power BI web service. Requires authentication before it can be executed.
 }
 \examples{
-pbiListAllDashboards(toDf = FALSE)
+\dontrun{pbiListAllDashboards(toDf = FALSE)}
 }

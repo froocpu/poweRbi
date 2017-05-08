@@ -10,7 +10,7 @@
 #' @param getContent If TRUE, extract JSON from the response object.
 #' @return HTTP response object.
 #' @examples
-#' pbiQueryBuilder(endpoint = "datasets")
+#' \dontrun{pbiQueryBuilder(endpoint = "datasets")}
 
 pbiQueryBuilder <- function(
   endpoint,

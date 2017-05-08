@@ -9,7 +9,8 @@
 #' @param FIFO Default retention policy, or basic "first-in-first-out". Dataset will store between 200-210k rows and remove the oldest rows when the storage limit has been reached. Consider this option for streaming datasets. Options are 'none' or 'basicFIFO'.
 #' @param verbose If TRUE, return extra information about the endpoint.
 #' @return HTTP response object.
-#' @examples pbiCreateDatasetFromDataFrame(name = "New Dataset", df = data.frame(cars), tableName = "Cars Table")
+#' @examples
+#' \dontrun{pbiCreateDatasetFromDataFrame("New Dataset", df = cars, tableName = "Cars")}
 
 pbiCreateDatasetFromDataFrame <- function(
   name,

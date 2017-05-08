@@ -18,5 +18,5 @@ HTTP response.
 Remove all rows from a table within a dataset. Hint: You can use pbiListAllTables to do this across multiple tables.
 }
 \examples{
-pbiTruncateDataset(guid = "aasdafs876fdsjds", tableName = "June Sales")
+\dontrun{pbiTruncateDataset(guid = "aasdafds", tableName = "June Sales")}
 }

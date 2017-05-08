@@ -16,5 +16,5 @@ Data frame.
 Return a data frame containing information about the groups associated with the user.
 }
 \examples{
-pbiListAllUserGroups()
+\dontrun{pbiListAllUserGroups()}
 }

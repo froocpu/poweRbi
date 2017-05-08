@@ -20,6 +20,5 @@ List object or JSON to be passed into the body of a request.
 Use a data frame to infer data types and produce a list object that can be converted to compatible JSON. See here: https://msdn.microsoft.com/en-us/library/mt203560.aspx
 }
 \examples{
-pbiGenerateTableSchema(cars, debug = TRUE) # It will coerce objects to data frames if it can.
-pbiDataTypes() # Use to reference accepted data types.
+pbiGenerateTableSchema(iris, debug = TRUE) # It will coerce objects to data frames if it can.
 }

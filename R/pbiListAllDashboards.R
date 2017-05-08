@@ -3,7 +3,7 @@
 #' @param toDf When TRUE, a tabular format is returned. When FALSE, more detailed content is returned as JSON.
 #' @return Data frame or JSON.
 #' @examples
-#' pbiListAllDashboards(toDf = FALSE)
+#' \dontrun{pbiListAllDashboards(toDf = FALSE)}
 
 pbiListAllDashboards <- function(toDf = TRUE){
 

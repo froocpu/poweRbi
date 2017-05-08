@@ -6,8 +6,7 @@
 #' @return List object or JSON to be passed into the body of a request.
 #' @importFrom jsonlite toJSON fromJSON
 #' @examples
-#' pbiGenerateTableSchema(cars, debug = TRUE) # It will coerce objects to data frames if it can.
-#' pbiDataTypes() # Use to reference accepted data types.
+#' pbiGenerateTableSchema(iris, debug = TRUE) # It will coerce objects to data frames if it can.
 
 pbiGenerateTableSchema <- function(df, tableName = NULL, debug = FALSE){
 

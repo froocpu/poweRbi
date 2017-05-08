@@ -2,6 +2,8 @@
 #' @description Uses class() and typeof() to predict what the correct Power BI data type should be for a data frame column.
 #' @param x A data frame column.
 #' @return Character string.
+#' @examples
+#' sapply(cars, ._pbiGetDataType)
 
 ._pbiGetDataType = function(x){
 

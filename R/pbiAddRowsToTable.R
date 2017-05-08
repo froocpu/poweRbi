@@ -7,8 +7,7 @@
 #' @param tableName The friendly name of the table. The URL will be encoded.
 #' @param truncate When TRUE, calls pbiTruncateDataset to clean the table before loading.
 #' @examples
-#' # not run!
-#' # pbiAddRowsToTable(iris, guid = "abc", tableName = "Iris")
+#' \dontrun{pbiAddRowsToTable(iris, guid = "abc", tableName = "Iris")}
 
 pbiAddRowsToTable <- function(df, guid, tableName, truncate = FALSE){
 

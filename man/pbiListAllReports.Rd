@@ -16,5 +16,5 @@ Data frame.
 Return a data frame containing basic information about all of the reports on your Power BI web service. Requires authentication before it can be executed.
 }
 \examples{
-pbiListAllReports()
+\dontrun{pbiListAllReports()}
 }

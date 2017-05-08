@@ -3,7 +3,7 @@
 #' @param guid A character string of a guid for a single dataset.
 #' @return cat
 #' @examples
-#' pbiDeleteDataset(id = "as8sdfasdfjkhasdf776fdsjds")
+#' \dontrun{pbiDeleteDataset(id = "as8sdfasdfjkha")}
 
 pbiDeleteDataset <- function(guid){
 

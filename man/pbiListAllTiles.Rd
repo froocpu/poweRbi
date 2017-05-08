@@ -18,5 +18,5 @@ Data frame.
 Return all tiles from a single, multiple or from all dashboards.
 }
 \examples{
-pbiListAllTiles(all = TRUE)
+\dontrun{pbiListAllTiles(all = TRUE)}
 }

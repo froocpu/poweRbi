@@ -18,5 +18,5 @@ Data frame.
 Return all data sources from a single, multiple or from all datasets.
 }
 \examples{
-pbiListAllDataSources(id = "as876fdsjds")
+\dontrun{pbiListAllDataSources(id = "as876fdsjds")}
 }

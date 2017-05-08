@@ -32,5 +32,5 @@ HTTP response object.
 An internal function that acts as a skeleton for building API queries for other functions. This will only work when you have authenticated first.
 }
 \examples{
-pbiQueryBuilder(endpoint = "datasets")
+\dontrun{pbiQueryBuilder(endpoint = "datasets")}
 }

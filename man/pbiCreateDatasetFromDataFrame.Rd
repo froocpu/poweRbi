@@ -31,5 +31,5 @@ HTTP response object.
 Requires the correct metadata information to be passed to the function in the form of lists and named variables. Relationships, measures and columns can be handled.
 }
 \examples{
-pbiCreateDatasetFromDataFrame(name = "New Dataset", df = data.frame(cars), tableName = "Cars Table")
+\dontrun{pbiCreateDatasetFromDataFrame("New Dataset", df = cars, tableName = "Cars")}
 }

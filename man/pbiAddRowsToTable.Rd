@@ -19,6 +19,5 @@ pbiAddRowsToTable(df, guid, tableName, truncate = FALSE)
 Assumes that the schema of the data frame matches the table, it will try and insert the rows.
 }
 \examples{
-# not run!
-# pbiAddRowsToTable(iris, guid = "abc", tableName = "Iris")
+\dontrun{pbiAddRowsToTable(iris, guid = "abc", tableName = "Iris")}
 }

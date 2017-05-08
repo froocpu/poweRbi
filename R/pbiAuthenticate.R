@@ -4,7 +4,8 @@
 #' @param clientId Application ID.
 #' @param clientSecret Client secret.
 #' @examples
-#' # pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")
+#' \dontrun{pbiAuthenticate(appName = "abc", clientId = "def", clientSecret = "ghi")}
+
 pbiAuthenticate <- function(
   appName,
   clientId,

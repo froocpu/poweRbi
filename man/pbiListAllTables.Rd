@@ -18,5 +18,5 @@ Data frame.
 Return all tables from a single, multiple or from all datasets.
 }
 \examples{
-pbiListAllTables(id = "as876fdsjds")
+\dontrun{pbiListAllTables(id = "as876fdsjds")}
 }

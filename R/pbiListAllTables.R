@@ -4,7 +4,7 @@
 #' @param allDatasets When TRUE, it will override the value of id and proceed to find all datasets.
 #' @return Data frame.
 #' @examples
-#' pbiListAllTables(id = "as876fdsjds")
+#' \dontrun{pbiListAllTables(id = "as876fdsjds")}
 
 pbiListAllTables <- function(id = NULL, allDatasets = FALSE){
 

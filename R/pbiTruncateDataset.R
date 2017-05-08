@@ -4,7 +4,7 @@
 #' @param tableName A single character string containing an pre-encoded friendly table name.
 #' @return HTTP response.
 #' @examples
-#' pbiTruncateDataset(guid = "aasdafs876fdsjds", tableName = "June Sales")
+#' \dontrun{pbiTruncateDataset(guid = "aasdafds", tableName = "June Sales")}
 
 pbiTruncateDataset <- function(guid, tableName){
 

@@ -3,7 +3,7 @@
 #' @param toDf When TRUE, a tabular format is returned. When FALSE, more detailed content is returned as JSON.
 #' @return Data frame.
 #' @examples
-#' pbiListAllImportedFiles()
+#' \dontrun{pbiListAllImportedFiles()}
 
 pbiListAllImportedFiles <- function(toDf = TRUE){
 

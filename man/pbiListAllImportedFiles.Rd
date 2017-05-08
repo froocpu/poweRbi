@@ -16,5 +16,5 @@ Data frame.
 Return a data frame containing detailed information about all of the imported data on your Power BI web service. You will be able to join with other queries on the IDs. Requires authentication before it can be executed.
 }
 \examples{
-pbiListAllImportedFiles()
+\dontrun{pbiListAllImportedFiles()}
 }

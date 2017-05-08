@@ -16,5 +16,5 @@ cat
 Remove the dataset entirely, not just truncate the rows of a table.
 }
 \examples{
-pbiDeleteDataset(id = "as8sdfasdfjkhasdf776fdsjds")
+\dontrun{pbiDeleteDataset(id = "as8sdfasdfjkha")}
 }

@@ -26,7 +26,7 @@ pbiUpdateTableSchema <- function(df, guid, tableName) {
       body = pbiGenerateTableSchema(df, tableName = tableName)
     ))
 
-    # Error handling.
+    # Error handling.
     if(exists("error", where = l)) {
       stop(paste("PUT request produced an error message: ", l$error$message))
       return(NULL)

@@ -12,7 +12,7 @@ pbiListAllDataSources <- function(id = NULL, allDatasets = FALSE){
 
   # Parameter validation.
   if(is.null(id) | allDatasets == TRUE){
-    stop("Overriding id variable...")
+    warning("Overriding id variable...")
     id = as.character(pbiListAllDatasets()$Id)
   }
 
@@ -29,7 +29,7 @@ pbiListAllDataSources <- function(id = NULL, allDatasets = FALSE){
 
     ## Error handle.
     if(exists("error", where = l)) {
-      stop(paste(each, "presented with an error message: ", l$error$message))
+      warning(paste(each, "presented with an error message: ", l$error$message))
       next
     }
 

@@ -9,7 +9,7 @@ pbiListAllTiles(id = NULL, allDashboards = FALSE)
 \arguments{
 \item{id}{A character string or vector containing guids. Hint: You can use pbiListAllDashboards to help you.}
 
-\item{all}{When TRUE, it will override the value of id and proceed to find all dashboards.}
+\item{allDashboards}{When TRUE, it will override the value of id and proceed to find all dashboards.}
 }
 \value{
 Data frame.

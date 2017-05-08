@@ -21,7 +21,7 @@ pbiListAllReports()
 
 # Tables
 pbiListAllTables(allDatasets = TRUE)
-pbiListAllTables(id = "cfcf6cde-45b7-459d-a8a3-a09644f5cbbe")
+pbiListAllTables(id = "507be4b2-5bc1-4202-85c9-e22a4bde0777")
 
 # Tiles
 pbiListAllTiles(allDashboards = TRUE)
@@ -35,8 +35,9 @@ pbiListAllUserGroups()
 
 #### 3. Create datasets from data frames. ------------------------------------
 pbiCreateDatasetFromDataFrame(
-  name = "Iris Dataset",
+  name = "Iris Dataset3",
   df = iris,
+  addRows = TRUE,
   tableName = "Iris Data Frame",
   FIFO = "basicFIFO"
 )
@@ -45,24 +46,24 @@ pbiCreateDatasetFromDataFrame(
 
 # Use populated (or empty) data frames to update tables in Power BI.
 pbiUpdateTableSchema(
-  iris3,
-  guid = "abcdefg",
+  data.frame(iris3),
+  guid = "bf744ed5-cd51-4096-a473-150b80143582",
   tableName = "Iris Data Frame"
 )
 
 # Truncate tables.
 pbiTruncateDataset(
-  guid = "cfcf6cde-45b7-459d-a8a3-a09644f5cbbe",
-  tableName = "Triangle"
+  guid = "bf744ed5-cd51-4096-a473-150b80143582",
+  tableName = "Iris Data Frame"
 )
 
 # Delete entire datasets.
-pbiDeleteDataset(guid = "cfcf6cde-45b7-459d-a8a3-a09644f5cbbe")
+pbiDeleteDataset(guid = "bf744ed5-cd51-4096-a473-150b80143582")
 
 # Create new rows.
 pbiAddRowsToTable(
-  df = cats,
-  guid = "abcdef",
+  df = iris,
+  guid = "b765f9c4-17b4-4371-b7e6-f510288f8204",
   tableName = "Iris Data Frame"
 )
 

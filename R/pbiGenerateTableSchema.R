@@ -11,10 +11,12 @@
 pbiGenerateTableSchema <- function(df, tableName = NULL, debug = FALSE){
 
   # Create a storage data frame.
-  collectMeta = data.frame(row.names = NULL,
-    name = names(df),
-    dataType = sapply(df, ._pbiGetDataType)
-  )
+  collectMeta = try(data.frame(row.names = NULL,
+    name = names(iris3),
+    dataType = sapply(iris3, ._pbiGetDataType)
+  ))
+
+  if(is(collectMeta, "try-error")) stop("Make sure that the object you have passed is a data frame and not a double/list object.")
 
   # jsonlite's version of toJSON returns the data in the correct format, and comes with HTTR.
   json = paste0(

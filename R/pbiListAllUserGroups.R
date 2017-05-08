@@ -16,11 +16,6 @@ pbiListAllUserGroups <- function(toDf = TRUE){
     return(NULL)
   }
 
-  if(length(l$content) == 0) {
-    stop("Check your app permissions - there was no content attached to the response.")
-    return(NULL)
-  }
-
   # If the user wants the JSON from the successful API call, then return it.
   # Don't bother parsing to a data frame.
   if(toDf == FALSE) return(l)

@@ -81,7 +81,7 @@ pbiCreateDatasetFromDataFrame <- function(
     newDataset <- as.character(newDatasets$Id[!(newDatasets$Name %in% datasets$Name)])
 
     ## Add rows.
-    pbiAddRowsToTable(df = cats, guid = newDataset, tableName = tableName)
+    pbiAddRowsToTable(df = df, guid = newDataset, tableName = tableName)
 
   }
 

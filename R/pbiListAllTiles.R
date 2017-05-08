@@ -1,7 +1,7 @@
 #' List all tiles (from all dashboards)
 #' @description Return all tiles from a single, multiple or from all dashboards.
 #' @param id A character string or vector containing guids. Hint: You can use pbiListAllDashboards to help you.
-#' @param all When TRUE, it will override the value of id and proceed to find all dashboards.
+#' @param allDashboards When TRUE, it will override the value of id and proceed to find all dashboards.
 #' @return Data frame.
 #' @examples
 #' pbiListAllTiles(all = TRUE)
@@ -12,7 +12,7 @@ pbiListAllTiles <- function(id = NULL, allDashboards = FALSE){
 
   # Input validation.
   if(is.null(id) | allDashboards == TRUE){
-    stop("Overriding id variable...")
+    warning("Overriding id variable...")
     id = as.character(pbiListAllDashboards()$Id)
   }
 
@@ -29,7 +29,7 @@ pbiListAllTiles <- function(id = NULL, allDashboards = FALSE){
 
     ## Error handling.
     if(exists("error", where = l)) {
-      stop(paste(each, "produced an error message: ", l$error$message))
+      warning(paste(each, "produced an error message: ", l$error$message))
       next
     }
 
@@ -37,12 +37,6 @@ pbiListAllTiles <- function(id = NULL, allDashboards = FALSE){
       next
     }
 
-    if(
-      length(grepl("xml", class(l))) > 0
-    ){
-      stop(paste(each, "produced an XML output, which usually means a bad request."))
-      next
-    }
 
     ## Append the results to a data frame.
     df = rbind(df, data.frame(

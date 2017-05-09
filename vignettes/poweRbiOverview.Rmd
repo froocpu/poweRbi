@@ -1,34 +1,41 @@
+---
+title: "poweRbi Overview"
+author: "Ollie Frost"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{poweRbi Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-poweRbi
-=======
+An R-based, httr-style interface for the Power BI REST API. Inspired by the work of libraries like twitteR and httr in R, 
+this library aims to provide a useful set of tools for navigating the (fairly limited) Power BI REST API for their web services.
 
-An R-based, httr-style interface for the Power BI REST API. Inspired by the work of libraries like twitteR and httr in R, this library aims to provide a useful set of tools for navigating the (fairly limited) Power BI REST API for their web services.
-
-You will need to register an app before you can use this library: <https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-overview-of-power-bi-rest-api/>
+You will need to register an app before you can use this library: https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-overview-of-power-bi-rest-api/
 
 ### Overview
 
 The package satisfies five main functions:
 
--   Handles OAuth 2.0 authentication between R sessions and Power BI applications.
--   Pulls metadata about datasets, dashboards and tiles, reports, import files and user groups.
--   Creates datasets, imports data frames as tables and streams data to Power BI tables.
--   Managing existing datasets with update, truncation and delete functions.
--   Provides utilities to infer data types and generate list/JSON objects from data frames.
+ - Handles OAuth 2.0 authentication between R sessions and Power BI applications.
+ - Pulls metadata about datasets, dashboards and tiles, reports, import files and user groups.
+ - Creates datasets, imports data frames as tables and streams data to Power BI tables.
+ - Managing existing datasets with update, truncation and delete functions.
+ - Provides utilities to infer data types and generate list/JSON objects from data frames.
 
 Some use cases :
 
--   Streaming data from an external source to a Streaming or PushStreaming Power BI dataset.
--   Creating datasets and tables on the fly and storing the results of R scripts on a Power BI web service.
--   Maintaining datasets, reports and dashboards.
--   Using URLs from report metadata to embed reports as iframes inside your own application.
+ - Streaming data from an external source to a Streaming or PushStreaming Power BI dataset.
+ - Creating datasets and tables on the fly and storing the results of R scripts on a Power BI web service.
+ - Maintaining datasets, reports and dashboards.
+ - Using URLs from report metadata to embed reports as iframes inside your own application.
 
 #### Before installing:
+This is still in development and fairly experimental. Much of the functionality is ready to use, so if there are any significant improvements
+that can be made during this process then feel free to make changes and contribute as you please.
 
-This is still in development and fairly experimental. Much of the functionality is ready to use, so if there are any significant improvements that can be made during this process then feel free to make changes and contribute as you please.
-
-``` r
+```r
 install.packages("devtools") # If required.
 devtools::install_github("olfrost/poweRbi")
 ```
@@ -37,7 +44,7 @@ devtools::install_github("olfrost/poweRbi")
 
 See the demo directory for the full code examples for the following:
 
-``` r
+```r
 library(poweRbi)
 ```
 
@@ -45,13 +52,13 @@ All functions are prefixed with "pbi" to enable faster lookup.
 
 #### Authenticate your session.
 
-``` r
+```r
 pbiAuthenticate(appName, clientId, clientSecret) # This will take you to a sign-in page, or you can cache your authentication details as a .httr-oauth file.
 ```
 
 #### Get metadata about objects in your workspace
 
-``` r
+```r
 # Datasets
 pbiListAllDatasets(toDf = FALSE) # Be flexible on whether your data is returned as a list or as a data frame.
 
@@ -80,8 +87,7 @@ pbiListAllUserGroups()
 ```
 
 #### Create datasets from data frames
-
-``` r
+```r
 pbiCreateDatasetFromDataFrame(
   name = "Iris Dataset",
   df = iris,
@@ -92,7 +98,7 @@ pbiCreateDatasetFromDataFrame(
 
 #### Manage existing datasets
 
-``` r
+```r
 # Use populated (or empty) data frames to update tables in Power BI.
 pbiUpdateTableSchema(
   iris3, # Overwrite table schemas.
@@ -119,7 +125,7 @@ pbiAddRowsToTable(
 
 #### Utilities
 
-``` r
+```r
 # What data types does Power BI implement?
 pbiDataTypes(simple = TRUE, verbose = FALSE)
 pbiDatasetTypes()
